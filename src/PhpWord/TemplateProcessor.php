@@ -99,13 +99,16 @@ class TemplateProcessor
      *
      *
      */
-    public function repairListItems($numIdBullets, $numIdNumbers, $bullets = false) {
-        // TODO: insert a possibiltiy to divide ordered and unordered lists
-        // for the moment we use either numbers or bullets for all list
-        $replace = $numIdNumbers;
-        if($bullets) $replace = $numIdBullets;
+    public function bulletList() {
+        // set bullet id into 2 because the value of bullet list in xml is 2
+        $bulletId = 2;
+        $this->tempDocumentMainPart = str_replace('<w:numId w:val=""', '<w:numId w:val="' . $bulletId . '"', $this->tempDocumentMainPart);
+    }
 
-        $this->tempDocumentMainPart = str_replace('<w:numId w:val=""', '<w:numId w:val="' . $replace . '"', $this->tempDocumentMainPart);
+    public function numberList($numIdBullets, $numIdNumbers, $bullets = false) {
+        // set bullet id into 3 because the value of number list in xml is 3
+        $numberId = 3;
+        $this->tempDocumentMainPart = str_replace('<w:numId w:val=""', '<w:numId w:val="' . $numberId . '"', $this->tempDocumentMainPart);
     }
 
     /**
