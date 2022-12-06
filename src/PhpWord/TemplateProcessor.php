@@ -105,7 +105,7 @@ class TemplateProcessor
         $this->tempDocumentMainPart = str_replace('<w:numId w:val=""', '<w:numId w:val="' . $bulletId . '"', $this->tempDocumentMainPart);
     }
 
-    public function numberList($numIdBullets, $numIdNumbers, $bullets = false) {
+    public function numberList() {
         // set bullet id into 3 because the value of number list in xml is 3
         $numberId = 3;
         $this->tempDocumentMainPart = str_replace('<w:numId w:val=""', '<w:numId w:val="' . $numberId . '"', $this->tempDocumentMainPart);
